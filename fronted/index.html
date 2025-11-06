@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de lamparas web</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet">
+  <!-- Aquí es donde incluyes GSAP desde una CDN -->
+  <!-- GSAP Core Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <!-- GSAP ScrollTrigger Plugin (si lo vas a usar para animaciones al scroll) -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js" defer> </script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+  <header>
+    <h1> ATELIER DE LA LUZ</h1>
+    <img src="foto/Atelier_de_la_luz.png" class="logo">
+    <nav class="nav">
+      <a href="catalogo.html">Catálogo</a>
+      <a href="diseño.html">Crea tu lámpara</a>
+      <a href="xuenta.html">Mi cuenta</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </header>
+  <main>
+    <div class="container1">
+
+
+      <h2> A T E L I E R</h2>
+      <br>
+      <h3>Del fr. a-te-lie</h3>
+      <br>
+      <p> 1. (s) Taller de creación artística o de diseño,
+        <br>
+        entendido como espacio artesanal donde el oficio
+        <br>
+        y el proceso creativo dan forma a cada pieza.
+      </p>
+      <br>
+
+    </div>
+    <br>
+    <div class="container2">
+      <h2>¡Transforma tu espacio con la magia de la iluminación!</h2>
+      <br>
+      <p>¿Te gustaría que tu entorno sea un reflejo de tu personalidad,
+        <br> que esté iluminado para realzar su belleza y pensado para su funcionalidad?
+        <br> ¡Es posible! Y lo mejor de todo, puedes verlo antes de invertir.
+      </p>
+    </div>
+    <br>
+    <div class="container3">
+      <h4>¡En Atelier de la luz transformamos tus ideas en realidad!</h4>
+      <p> Contamos con una gran variedad de lamparas, mira los diseños de lamparas mas recientes en <b>ATELIER DE LA
+          LUZ:</b></p>
+
+      <section class="productos-destacados">
+        <h2>Encontra la luz perfecta para tu espacio</h2>
+
+        <div class="carrousel-contenedor-principal">
+          <button class="carrousel-flecha izquierda" id="flechaIzquierda">&#10094;</button>
+        <div class="carrousel-contenedor">
+          <div class="carrousel-pistas" id="carrouselPistas">
+
+            <div class="diapositiva">
+              <img src="carrousel/Gemini_Generated_Image_6e5ikj6e5ikj6e5i.png" alt="Lampara para dormitorio">
+              <div class="diapositiva-contenido">
+                <h3>Ambiente Vanguardista</h3>
+                <p>Imagina nuestras lamparas de diseño realzanod tu salon moderno</p>
+                <a href="catalogo.html" class="btn-ver-mas">Ver catalogo</a>
+              </div>
+            </div>
+            <div class="diapositiva">
+              <img src="carrousel/Gemini_Generated_Image_82xi7g82xi7g82xi.png" alt="Lampara para mesa de luz">
+              <div class="diapositiva-contenido">
+                <h3>Tu espacio de tranquilidad</h3>
+                <p>Crea atmosferas acogedoras con nuestra seleccion para dormitorios</p>
+                <a href="probar.html" class="btn-ver-mas">Pruebala en tu hogar!</a>
+              </div>
+            </div>
+            
+            <div class="diapositiva">
+              <img src="carrousel/Gemini_Generated_Image_rrajdgrrajdgrraj.png" alt="Lampara para comedor">
+              <div class="diapositiva-contenido">
+                <h3>Ilumina a tu creatividad</h3>
+                <p>Diseño y funcionalidad para tu espacio.</p>
+                <a href="catalogo.html" class="btn-ver-mas">Descubre mas</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <button class="carrousel-flecha derecha" id="flechaDerecha">&#10095;</button>
+      </div>
+      </section>
+
+  </main>
+  <footer>
+    <img src="foto/Imagotipo Atelier.png" alt="" height="50%" width="30%">
+    <hr>
+    <h3>Averigua mas en nuestras redes</h3>
+    <div class="container-footerRedes">
+      <a href="https://www.instagram.com/atelier.dela.luz/"><i
+          class="fa-brands fa-star fa-xl  fa-instagram icono-instagram"></i></a>
+      <a href="https://www.tiktok.com/@dani_ballatore?_t=ZM-8uyqP1SAlBF&_r=1"><i
+          class="fa-brands fa-star fa-xl fa-tiktok icono-tiktok"></i></a>
+      <a href="https://www.youtube.com/@DaniBallatores"><i
+          class="fa-brands fa-star fa-xl fa-youtube icono-youtube"></i></a>
+      <a
+        href="https://wa.me/5493492610697?text=Estoy%20interesado%20en%20la%20Lámpara%20XYZ.%20%C2%BFTienen%20stock%3F"><i
+          class="fa-brands fa-star fa-xl fa-whatsapp icono-whatsapp"></i></a>
+    </div>
+    <div class="container-footerConsultas">
+      <h3>Contactame!</h3>
+    </div>
+
+  </footer>
+</body>
+
+</html>

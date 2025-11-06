@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Eliminado el link Home del head -->
+    <title>Diseña tu lampara</title>
+    <link rel="stylesheet" href="diseño.css">
+</head>
+
+<body>
+    <header class="header-flex">
+        <a href="index.html" class="home-link">
+            <img src="https://cdn-icons-png.flaticon.com/512/25/25694.png" alt="Home" class="home-icon" />
+        </a>
+        <h1>Diseña tu lampara ideal</h1>
+    </header>
+    <main class="designer-container">
+        <div class="lamp-preview">
+            <h2>Tu lampara:</h2>
+            <div class="lamp-image-container">
+                <img id="lamp-base" src="" alt="Base de la lampara">
+                <img id="lamp-shade" src="" alt="Pantalla de lampara">
+                <img id="lamp-bulb" src="" alt="Bombilla de la lampara">
+            </div>
+
+        </div>
+        <div class="controls-panel">
+            <h2>Personaliza Aqui:</h2>
+            <section class="control-group">
+                <h3>1.Elige la base:</h3>
+                <div class="options-container">
+                    <button class="option-btn" data-part="base" data value="base-modern" data-price="20">
+                        <img src="" alt="Base moderna">
+                        <span>Moderna</span>
+                    </button>
+                     <button class="option-btn" data-part="base" data-value="base-classic" data-price="25">
+                        <img src="thumbnails/base-classic-thumb.png" alt="Base Clásica">
+                        <span>Clásica</span>
+                    </button>
+                    <button class="option-btn" data-part="base" data-value="base-wood" data-price="30">
+                        <img src="thumbnails/base-wood-thumb.png" alt="Base de Madera">
+                        <span>Madera</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h3>2. Elige la Pantalla:</h3>
+                <div class="options-container">
+                    <button class="option-btn" data-part="shade" data-value="shade-cone" data-price="15">
+                        <img src="thumbnails/shade-cone-thumb.png" alt="Pantalla Cónica">
+                        <span>Cónica</span>
+                    </button>
+                    <button class="option-btn" data-part="shade" data-value="shade-drum" data-price="18">
+                        <img src="thumbnails/shade-drum-thumb.png" alt="Pantalla Tambor">
+                        <span>Tambor</span>
+                    </button>
+                    <button class="option-btn" data-part="shade" data-value="shade-fabric" data-price="22">
+                        <img src="thumbnails/shade-fabric-thumb.png" alt="Pantalla Tela">
+                        <span>Tela</span>
+                    </button>
+                </div>
+            </section>
+
+            <section class="control-group">
+                <h3>3. Tipo de Bombilla:</h3>
+                <div class="options-container">
+                    <button class="option-btn" data-part="bulb" data-value="bulb-led" data-price="5">
+                        <img src="thumbnails/bulb-led-thumb.png" alt="Bombilla LED">
+                        <span>LED</span>
+                    </button>
+                    <button class="option-btn" data-part="bulb" data-value="bulb-incandescent" data-price="3">
+                        <img src="thumbnails/bulb-incandescent-thumb.png" alt="Bombilla Incandescente">
+                        <span>Incandescente</span>
+                    </button>
+                </div>
+            </section>
+
+            <button id="add-to-cart-btn">Añadir al Carrito</button>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+</body>
+
+</html>

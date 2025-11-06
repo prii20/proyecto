@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Probar Lámpara en tu Hogar</title>
+    <link rel="stylesheet" href="probar.css">
+    <script src="probar.js" defer></script>
+
+</head>
+
+<body>
+
+    <header>
+        <div class="header-content">
+            <h2>P R O B A R &nbsp; E N &nbsp; T U &nbsp; H O G A R</h2>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="catalogo.html">Volver al Catálogo</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="camera-section">
+            <h>Simulador de Lamparas AR</h1>
+            <p>Captura tu espacio y arrastra la lampara para previsualizar.</p>
+
+            <div class="camera-controls">
+           <button id="activateCameraButton">Iniciar Camara</button>
+           <button id="stopCameraButton" style="display:none;">Detener Camara</button>
+           <button id="takePhotoBtn" style="display:none;">Tomar Foto</button>
+           <button id="clearPhotoBtn" style="display:none;">Borrar Foto</button>
+           <button id="addLampBtn" style="display: none;">Poner Lampara</button>
+
+           <div id="lamparaSeleccion" style="display:none;">
+            <span>Selecciona una Lampara:</span>
+            <button class="add-lamp-btn" data-lampara-src="lamparas/celestia.png">Lampara Colgante</button>
+            <button class="add-lamp-btn" data-lampara-src="lamparas/TORRENT.encendida hueso.png"
+           </div>
+            </div>
+
+            <div id="simuladorArea">
+
+                <video id="liveCameraFeed" autoplay playsinline></video>
+
+                <canvas id="photoCanvas" style="display: none;"></canvas>
+            </div>
+            <p id="errorMessage" class="error-message"></p>
+    </main>
+</div>
+
+
+</body>
+
+</html>
