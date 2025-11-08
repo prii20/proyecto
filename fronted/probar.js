@@ -51,6 +51,7 @@ const takePhotoButton = document.getElementById('takePhotoBtn');
 const clearPhotoButton = document.getElementById('clearPhotoBtn');
 const addLampButton = document.getElementById('addLampBtn');
 const errorMessage = document.getElementById('errorMessage');
+const saveLampButton = document.getElementById('saveLamp-Btn');
 
 const lamparaSelectionDiv= document.getElementById('lamparaSeleccion');
 const lampButtons = document.querySelectorAll('.add-lamp-btn');
@@ -129,7 +130,7 @@ takePhotoButton.addEventListener('click', ()=>{
   stopButton.style.display='none';
   clearPhotoButton.style.display='inline-block';
   addLampButton.style.display='inline-block';
-
+  saveLampButton.style.display='inline-block';
   lamparaSelectionDiv.style.display='block';
 });
 
