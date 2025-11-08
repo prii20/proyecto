@@ -52,7 +52,7 @@ const clearPhotoButton = document.getElementById('clearPhotoBtn');
 const addLampButton = document.getElementById('addLampBtn');
 const errorMessage = document.getElementById('errorMessage');
 
-const lamparaSelectionDiv= document.getElementById('lamparaSelection');
+const lamparaSelectionDiv= document.getElementById('lamparaSeleccion');
 const lampButtons = document.querySelectorAll('.add-lamp-btn');
 
 let mediaStream = null //Variable global para detener la camara
