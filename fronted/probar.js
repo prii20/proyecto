@@ -53,6 +53,8 @@ const addLampButton = document.getElementById('addLampBtn');
 const errorMessage = document.getElementById('errorMessage');
 const saveLampButton = document.getElementById('saveLamp-Btn');
 
+errorMessage.textContent=''; //basicamente limpia el mensaje de error al iniciar
+
 const lamparaSelectionDiv= document.getElementById('lamparaSeleccion');
 const lampButtons = document.querySelectorAll('.add-lamp-btn');
 
@@ -148,9 +150,9 @@ lamparaSelectionDiv.style.display='none';
 activateButton.style.display='inline-block';
 });
 
-// =========================================================
+
 // LÓGICA FINAL: PONER/CAMBIAR LA LÁMPARA Y ACTIVAR ARRASTRE
-// =========================================================
+
 
 // Asignamos un event listener a CADA botón de lámpara
 lampButtons.forEach(button => {
@@ -162,10 +164,10 @@ lampButtons.forEach(button => {
         let lampara = document.getElementById('lampara-draggable');
         
         if (lampara) {
-            // Caso A: Ya existe una lámpara. Solo cambiamos la imagen (src) y la mantenemos en su lugar.
+            // ya existe una lámpara. Solo cambiamos la imagen (src) y la mantenemos en su lugar.
             lampara.src = nuevaLamparaSrc;
         } else {
-            // Caso B: No existe. La creamos, la posicionamos y activamos el arrastre.
+            // no existe. La creamos, la posicionamos y activamos el arrastre.
             lampara = document.createElement('img');
             lampara.src = nuevaLamparaSrc; 
             lampara.className = 'lampara-superpuesta'; // Aplica position: absolute
@@ -180,7 +182,7 @@ lampButtons.forEach(button => {
             simuladorArea.appendChild(lampara);
             hacerElementoArrastrable(lampara); // LLAMADA A LA FUNCIÓN DE ARRASTRE
         }
-        
-        errorMessage.textContent = '¡Lámpara lista! Arrástrala para colocarla.';
+
+       errorMessage.textContent = '¡Lámpara lista! Arrástrala para colocarla.';
     });
 });
