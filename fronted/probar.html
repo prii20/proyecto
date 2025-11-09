@@ -21,35 +21,63 @@
 
     <main>
         <div class="camera-section">
-            <h>Simulador de Lamparas AR</h1>
+            <h1>Simulador de Lamparas AR</h1>
             <p>Captura tu espacio y arrastra la lampara para previsualizar.</p>
 
-            <div class="camera-controls">
-           <button id="activateCameraButton">Iniciar Camara</button>
-           <button id="stopCameraButton" style="display:none;">Detener Camara</button>
-           <button id="takePhotoBtn" style="display:none;">Tomar Foto</button>
-           <button id="clearPhotoBtn" style="display:none;">Borrar Foto</button>
-           <button id="addLampBtn" style="display: none;">Poner Lampara</button>
-           <button id="saveLamp-Btn" style="display: none;">Guardar Foto</button>
+            <div class="layout-container">
 
-           <div id="lamparaSeleccion" style="display:none;">
-            <span>Selecciona una Lampara:</span>
-            <button class="add-lamp-btn" data-lampara-src="lamparas/celestia.png">Lampara Colgante</button>
-            <button class="add-lamp-btn" data-lampara-src="lamparas/TORRENT.encendida hueso.png">Lampara de Pie</button>
-           </div>
-            </div>
+                <div class="sidebar-lamparas">
 
-            <div id="simuladorArea">
+                    <!-- 1. Controles Principales de la Cámara -->
+                    <div class="camera-controls">
+                        <button id="activateCameraButton">Iniciar Camara</button>
+                        <button id="stopCameraButton" style="display:none;">Detener Camara</button>
+                        <button id="takePhotoBtn" style="display:none;">Tomar Foto</button>
+                        <button id="clearPhotoBtn" style="display:none;">Borrar Foto</button>
+                       
+                        <button id="addLampBtn" style="display: none;">Poner Lampara</button>
+                        <button id="saveLamp-Btn" style="display: none;">Guardar Foto</button>
+                    </div>
 
-                <video id="liveCameraFeed" autoplay playsinline></video>
+                 
+                    <div id="scale-controls" style="display:none; margin-top: 20px;">
+                        <h4>Ajustar Tamaño:</h4>
+                        <div class="scale-buttons-container">
+                            <button id="zoomOutBtn" class="scale-btn">- Achicar</button>
+                            <button id="zoomInBtn" class="scale-btn">+ Agrandar</button>
+                        </div>
+                    </div>
 
-                <canvas id="photoCanvas" style="display: none;"></canvas>
-            </div>
+                   
+                    <div id="lamparaSeleccion" class="selection-box" style="display:none;">
+                        <span>Selecciona una Lampara:</span>
+                        
+                        <div class="lampara-card"
+                             data-lampara-src="lamparas/celestia.png"
+                             data-preview-src="lamparas/preview/loopPreview.jpg"> 
+                             <img src="lamparas/preview/brumaPreview.jpg" alt="Vista previa de Bruma"><span>Bruma</span>
+                        </div>
+                        
+                        <div class="lampara-card"
+                             data-lampara-src="lamparas/elara.png"
+                             data-preview-src="lamparas/preview/elaraPreview.jpg">
+                             <img src="lamparas/preview/loopPreview.jpg" alt="Vista previa de Loop"><span>Loop</span>
+                        </div>
+                    </div>
+
+                </div> 
+                
+               
+                <div id="simuladorArea" class="simulador-principal">
+                    <video id="liveCameraFeed" autoplay playsinline></video>
+                    <canvas id="photoCanvas" style="display: none;"></canvas>
+                </div>
+
+        </div>  <!-- Fin de .layout-container -->
+
             <p id="errorMessage" class="error-message"></p>
+
+        </div> <!-- Fin de .camera-section -->
     </main>
-</div>
-
-
 </body>
-
 </html>
