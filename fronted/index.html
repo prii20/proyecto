@@ -17,7 +17,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
   <!-- GSAP ScrollTrigger Plugin (si lo vas a usar para animaciones al scroll) -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-  <script src="script.js" defer> </script>
+ 
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
@@ -36,7 +36,7 @@
     </nav>
   </header>
   <main>
-    <div class="container1">
+    <div class="container1 gsap-fade-in">
 
 
       <h2> A T E L I E R</h2>
@@ -53,7 +53,7 @@
 
     </div>
     <br>
-    <div class="container2">
+    <div class="container2 gsap-fade-in">
       <h2>¡Transforma tu espacio con la magia de la iluminación!</h2>
       <br>
       <p>¿Te gustaría que tu entorno sea un reflejo de tu personalidad,
@@ -62,7 +62,7 @@
       </p>
     </div>
     <br>
-    <div class="container3">
+    <div class="container3  gsap-fade-in">
       <h4>¡En Atelier de la luz transformamos tus ideas en realidad!</h4>
       <p> Contamos con una gran variedad de lamparas, mira los diseños de lamparas mas recientes en <b>ATELIER DE LA
           LUZ:</b></p>
@@ -108,26 +108,25 @@
       </section>
 
   </main>
-  <footer>
-    <img src="foto/Imagotipo Atelier.png" alt="" height="50%" width="30%">
-    <hr>
-    <h3>Averigua mas en nuestras redes</h3>
-    <div class="container-footerRedes">
-      <a href="https://www.instagram.com/atelier.dela.luz/"><i
-          class="fa-brands fa-star fa-xl  fa-instagram icono-instagram"></i></a>
-      <a href="https://www.tiktok.com/@dani_ballatore?_t=ZM-8uyqP1SAlBF&_r=1"><i
-          class="fa-brands fa-star fa-xl fa-tiktok icono-tiktok"></i></a>
-      <a href="https://www.youtube.com/@DaniBallatores"><i
-          class="fa-brands fa-star fa-xl fa-youtube icono-youtube"></i></a>
-      <a
-        href="https://wa.me/5493492610697?text=Estoy%20interesado%20en%20la%20Lámpara%20XYZ.%20%C2%BFTienen%20stock%3F"><i
-          class="fa-brands fa-star fa-xl fa-whatsapp icono-whatsapp"></i></a>
+  <footer class="animated-footer">
+    <div class="footer-content">
+      <img src="foto/Imagotipo Atelier.png" alt ="Atelier de la luz" class="footer-logo">
+      <hr class="footer-divider">
+      <h3 class="footer-heading-redes">Averigua mas en nuestras redes</h3>
+      <div class="container-footerRedes">
+        <a href="https://www.instagram.com/atelier.dela.luz/" class="social-icon instagram"><i class="fa-brands fa-star fa-xl fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@dani_ballatore?_t=ZM-8uyqP1SAlBF&_r=1" class="social-icon tiktok"><i class="da-brands fa-star fa-xl fa-tiktok"></i></a>
+        <a href="https://www.youtube.com/@DaniBallatores" class="social-icon youtube"><i class="fa-brands fa-star fa-xl fa-youtube"></i></a>
+            <a href="https://wa.me/5493492610697?text=Estoy%20interesado%20en%20la%20Lámpara%20XYZ.%20%C2%BFTienen%20stock%3F" class="social-icon whatsapp"><i class="fa-brands fa-star fa-xl fa-whatsapp"></i></a>
+        </div>
+        <div class="container-footerConsultas">
+            <h3 class="footer-heading-contact">¡Contáctame!</h3>
+      </div>
     </div>
-    <div class="container-footerConsultas">
-      <h3>Contactame!</h3>
-    </div>
+   
 
   </footer>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
