@@ -125,43 +125,97 @@ body {
   }
 }
 /*estilo  y diseño para el footer*/
-footer {
-  background-color: #ffffff;
-  padding: 80px;
-  margin-top: 20px;
+.animated-footer {
+    background-color: #ffffff;
+    padding: 60px;
+    margin-top: 20px;
+    overflow: hidden; 
+    position: relative;
 }
 
-footer img{
-  justify-content: left;
+.footer-content {
+    max-width: 1200px; 
+    margin: 0 auto; 
+    display: flex;
+    overflow: hidden;
+    position:relative;
+    flex-direction: column;
+    align-items: flex-start; 
+    color: black;
+}
 
+.footer-logo {
+    justify-content: left;
+    height: 50%; 
+    width: 30%; 
+   
 }
-.container-footerRedes{
-  gap:20px;
-  display:flex;
-  align-items: center;
-  margin-top: 20px;
+
+.footer-divider {
+    width: 100%;
+    border: none;
+    border-top: 1px solid #eee;
+    margin: 20px 0;
+    transform-origin: left;
 }
-.icono-instagram{
-  color: #E4405F;
+
+.footer-heading-redes,
+.footer-heading-contact {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0;
+   
 }
-.icono-tiktok{
-  color:black;
+
+.container-footerRedes {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
 }
-.icono-youtube{
-  color: red;
+
+.social-icon {
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease; 
 }
-.icono-whatsapp{
-  color: green;
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1); 
 }
-.container-footerRedes a{
-  text-decoration: none;
+
+.instagram .fa-instagram {
+    color: #E4405F;
 }
-.container-footerConsultas{
-  justify-content: right;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  display: flex;
-  margin-top: 0;
+
+.tiktok .fa-tiktok {
+    color: black;
 }
-.container-footerConsultas h3{
-  margin-top: 0;
+
+.youtube .fa-youtube {
+    color: red;
+}
+
+.whatsapp .fa-whatsapp {
+    color: green;
+}
+
+
+.instagram:hover .fa-instagram {
+    color: #f77a91;
+}
+.tiktok:hover .fa-tiktok {
+    color: #333;
+}
+.youtube:hover .fa-youtube {
+    color: #ff5757;
+}
+.whatsapp:hover .fa-whatsapp {
+    color: #4CAF50;
+}
+
+
+.container-footerConsultas {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end; 
+    margin-top: 40px;
 }
