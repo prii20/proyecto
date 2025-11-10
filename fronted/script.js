@@ -167,7 +167,9 @@ gsap.from(".animated-footer", {
     scrollTrigger: {
         trigger: ".animated-footer",
         start: "top 80%", 
-        toggleActions: "play none none reverse", // Reproduce la animación una vez y la revierte al salir
+        toggleActions: "play none none reverse",
+         // Reproduce la animación una vez y la revierte al salir
+         
     }
 });
 
@@ -177,6 +179,7 @@ gsap.timeline({
         trigger: ".animated-footer",
         start: "top 80%",
         toggleActions: "play none none reverse",
+        
     }
 })
 .from(".footer-logo", {
