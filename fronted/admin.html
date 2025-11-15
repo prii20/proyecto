@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="admin.js" defer></script>
+    <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+    <title>Panel del admin</title>
+</head>
+<body class="bg-gray-10 font-sans">
+  <div class="flex min-h-screen">
+    <!-- 🟣 Barra lateral -->
+    <aside class="w-64 bg-gray-900 text-white flex flex-col">
+      <div class="p-6 text-2xl font-bold flex items-center gap-2">
+        <i data-lucide="lamp"></i> Admin Panel
+      </div>
+      <nav class="flex-1 px-4 space-y-3">
+        <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-indigo-600 transition">
+          <i data-lucide="layout-grid"></i> <span>Lámparas</span>
+        </a>
+        <a href="usuarios.html" class="flex items-center gap-2 p-2 rounded-lg hover:bg-indigo-600 transition">
+          <i data-lucide="users"></i> <span>Usuarios</span>
+        </a>
+      <button onclick="editarPerfil()" class="flex items-center gap-2 p-2 rounded-lg hover:bg-indigo-600 transition">
+        <i data-lucide="user"></i><span>Mi perfil</span>
+      </button>
+        
+      </nav>
+    
+      <button id="logoutBtn" class="bg-red-600 hover:bg-red-700 m-4 py-2 rounded-lg flex items-center justify-center gap-2">
+        <i data-lucide="log-out"></i> Cerrar sesión
+      </button>
+    </aside>
+
+    <!-- 🟢 Contenido principal -->
+    <main class="flex-1 p-6">
+      <h1 class="text-3xl font-semibold text-gray-800 mb-6 flex items-center gap-2">
+        <i data-lucide="lightbulb"></i> Gestión de Lámparas
+      </h1>
+
+      <!-- 🟣 Formulario agregar -->
+      <form id="formAgregar" class="bg-white rounded-2xl shadow p-4 mb-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+        <input id="nombre" placeholder="Nombre" class="border p-2 rounded-lg" required>
+        <input id="descripcion" placeholder="Descripción" class="border p-2 rounded-lg" required>
+        <input id="tipo" placeholder="Tipo" class="border p-2 rounded-lg" required>
+        <input id="ruta_imagen" placeholder="Ruta de imagen (URL)" class="border p-2 rounded-lg" required>
+        <button type="submit" class="bg-indigo-600 text-white rounded-lg p-2 hover:bg-indigo-700 transition flex items-center justify-center gap-2 col-span-full">
+          <i data-lucide="plus-circle"></i> Agregar Lámpara
+        </button>
+      </form>
+
+      <!-- 🟣 Listado -->
+      <div id="productos" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8"></div>
+    </main>
+  </div>
+
+  <!-- 🟣 Modal Editar -->
+  <div id="modalEditar" class="hidden fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center">
+    <div class="bg-white rounded-2xl p-6 w-96 relative shadow-lg">
+      <button onclick="cerrarModal()" class="absolute top-2 right-2 text-gray-400 hover:text-gray-600">
+        <i data-lucide="x"></i>
+      </button>
+      <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+        <i data-lucide="edit-3"></i> Editar Lámpara
+      </h2>
+      <form id="formEditar" class="space-y-3">
+        <input type="hidden" id="editId">
+        <input id="editNombre" placeholder="Nombre" class="border p-2 rounded-lg w-full" required>
+        <input id="editDescripcion" placeholder="Descripción" class="border p-2 rounded-lg w-full" required>
+       <input id="editTipo" placeholder="Tipo" class="border p-2 rounded-lg w-full" required>
+        <input id="editRuta" placeholder="Ruta de imagen" class="border p-2 rounded-lg w-full" required>
+        <button type="submit" class="bg-green-600 text-white w-full py-2 rounded-lg hover:bg-green-700 transition flex items-center justify-center gap-2">
+          <i data-lucide="save"></i> Guardar Cambios
+        </button>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

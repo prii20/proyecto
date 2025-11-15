@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gestión de Usuarios</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="usuarios.js" defer></script>
+</head>
+
+<body class="bg-gray-100 flex">
+
+  <!-- 🔹 Sidebar -->
+  <aside id="sidebar"
+    class="fixed md:static w-64 bg-gray-900 text-white min-h-screen p-4 flex flex-col justify-between transform -translate-x-full md:translate-x-0 transition-transform duration-300 z-50">
+    
+    <div>
+      <div class="flex items-center justify-between mb-8">
+        <div class="flex items-center gap-2">
+          <i data-lucide="lightbulb" class="w-6 h-6 text-yellow-400"></i>
+          <h1 class="text-lg font-semibold">Panel Admin</h1>
+        </div>
+        <button id="cerrarMenu" class="md:hidden">
+          <i data-lucide="x" class="w-6 h-6"></i>
+        </button>
+      </div>
+
+      <nav class="space-y-2">
+        <a href="admin.html"
+          class="flex items-center gap-2 p-2 rounded-lg hover:bg-indigo-600 transition">
+          <i data-lucide="layout-grid"></i>
+          <span>Lámparas</span>
+        </a>
+
+        <a href="#"
+          class="flex items-center gap-2 p-2 rounded-lg bg-indigo-600 transition">
+          <i data-lucide="users"></i>
+          <span>Usuarios</span>
+        </a>
+      </nav>
+    </div>
+
+    <button id="logoutBtn"
+      class="bg-red-600 hover:bg-red-700 px-4 py-2 rounded-lg w-full mt-8">Cerrar sesión</button>
+  </aside>
+
+  <!-- 🔹 Contenido -->
+  <div class="flex-1 flex flex-col min-h-screen">
+    <!-- Barra superior -->
+    <header class="bg-white shadow-md p-4 flex items-center justify-between md:hidden">
+      <button id="abrirMenu" class="text-gray-700">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+      <h1 class="text-lg font-semibold text-gray-800">Usuarios</h1>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="flex-1 p-8">
+      <h2 class="text-2xl font-bold mb-6 text-gray-800 hidden md:block">Usuarios registrados</h2>
+
+      <div class="overflow-x-auto bg-white rounded-xl shadow-lg">
+        <table class="min-w-full border-collapse">
+          <thead class="bg-gray-200">
+            <tr>
+              <th class="px-4 py-2 text-left">ID</th>
+              <th class="px-4 py-2 text-left">Nombre</th>
+              <th class="px-4 py-2 text-left">Email</th>
+              <th class="px-4 py-2 text-center">Rol</th>
+              <th class="px-4 py-2 text-center">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tablaUsuarios" class="divide-y"></tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- 🔹 Mensaje flotante -->
+  <div id="mensaje"
+    class="hidden fixed top-4 right-4 px-4 py-2 rounded-lg text-white shadow-lg z-50"></div>
+
+  <!-- 🔹 Modal Editar -->
+  <div id="modalEditar"
+    class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
+    <div class="bg-white rounded-xl p-6 w-full max-w-md shadow-lg">
+      <h3 class="text-lg font-semibold mb-4">Editar Usuario</h3>
+      <form id="formEditar" class="space-y-4">
+        <input type="hidden" id="editId" />
+
+        <div>
+          <label class="block text-gray-700">Nombre</label>
+          <input type="text" id="editNombre" required class="w-full border rounded-lg px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700">Email</label>
+          <input type="email" id="editEmail" required class="w-full border rounded-lg px-3 py-2" />
+        </div>
+
+        <div>
+          <label class="block text-gray-700">Rol</label>
+          <select id="editRol" class="w-full border rounded-lg px-3 py-2">
+            <option value="usuario">Usuario</option>
+            <option value="admin">Administrador</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="block text-gray-700">Contraseña (opcional)</label>
+          <input type="password" id="editPassword" class="w-full border rounded-lg px-3 py-2" />
+        </div>
+
+        <div class="flex justify-end gap-3 mt-4">
+          <button type="button" id="cancelarEditar"
+            class="bg-gray-400 hover:bg-gray-500 text-white px-4 py-2 rounded-lg">Cancelar</button>
+          <button type="submit"
+            class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg">Guardar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    // 🎯 Mostrar / ocultar menú
+    const sidebar = document.getElementById("sidebar");
+    const abrir = document.getElementById("abrirMenu");
+    const cerrar = document.getElementById("cerrarMenu");
+
+    abrir.addEventListener("click", () => {
+      sidebar.classList.remove("-translate-x-full");
+    });
+
+    cerrar.addEventListener("click", () => {
+      sidebar.classList.add("-translate-x-full");
+    });
+  </script>
+</body>
+</html>
