@@ -19,6 +19,9 @@ document.addEventListener("DOMContentLoaded", () => {
 //logica y animaciones para el footer
 
 
+//logica y animaciones para el footer
+
+
 
 
 gsap.from(".animated-footer", {
@@ -97,4 +100,8 @@ document.querySelectorAll(".social-icon").forEach(icon => {
         });
     });
 });
+
+
+
+
 
