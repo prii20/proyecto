@@ -1,0 +1,358 @@
+body {
+    margin: 0;
+    padding: 0;
+     background-color: rgb(236, 236, 236);
+    color: #333;
+    line-height: 1.6;
+}
+
+
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 60px;
+  border-bottom: 1px solid rgba(240, 234, 193, 0.15);
+}
+
+.header-content h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #2b2b2b;
+  text-transform: uppercase;
+}
+
+.nav {
+  display: flex;
+  gap: 30px;
+}
+
+.nav a {
+  color: #2b2b2b;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.nav a:hover {
+  color: #04154d;
+  text-shadow: 0 0 8px rgba(240, 234, 193, 0.6);
+}
+
+main {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.category-section {
+    margin-bottom: 3rem;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.category-section h2 {
+    color: #2b2b2b;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0.8rem;
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.lamps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2rem;
+}
+
+.lamp-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.lamp-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+.lamp-card img {
+    width: 75%;
+    height: 200px;
+    object-fit: cover; /* Recorta la imagen para que llene el contenedor */
+    border-bottom: 1px solid #eee;
+}
+
+.lamp-info {
+    padding: 1.5rem;
+}
+
+.lamp-info h3 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+}
+
+.lamp-info p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1.5rem 0;
+    margin-top: 4rem;
+    box-shadow: 0 -2px 4px rgba(0,0,0,0.1);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    .category-section h2 {
+        font-size: 1.8rem;
+    }
+    .lamps-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 2rem;
+    }
+    header p {
+        font-size: 1rem;
+    }
+    .category-section {
+        padding: 1.5rem;
+    }
+    .category-section h2 {
+        font-size: 1.5rem;
+    }
+    .lamp-info h3 {
+        font-size: 1.3rem;
+    }
+}
+
+/*estilo para el footer*/
+.animated-footer {
+    background-color: whitesmoke;
+    color: #2b2b2b;
+    padding: 50px;
+
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-columns-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    min-width: 250px;
+}
+
+.containerCol {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px;
+    min-width: 250px;
+}
+
+.footer-col {
+    flex-basis: calc(25% - 20px);
+    min-width: 180px;
+    height: 100%;
+}
+
+.footer-logo {
+    max-width: 160px;
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.footer-copyright,
+.footer-slogan {
+    font-size: 13px;
+    color: #aaaaaa;
+    margin-top: 5px;
+}
+
+
+.footer-heading-col {
+    font-size: 16px;
+    margin-bottom: 20px;
+    color: #2b2b2b;
+    text-transform: uppercase;
+    border-bottom: 2px solid #2b2b2b;
+    padding-bottom: 5px;
+}
+
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col li {
+    margin-bottom: 8px;
+}
+
+.footer-col a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 14px;
+}
+
+.footer-col a:hover {
+    color: #6c6b79;
+}
+
+.footer-col,
+.footer-col-info p {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: black;
+}
+
+.footer-divider-full {
+    border: 0;
+    border-top: 1px solid #444;
+    margin: 30px 0;
+}
+
+
+
+.footer-heading-redes,
+.footer-heading-contact {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-top: 0;
+
+}
+
+.container-footerRedes {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.social-icon {
+    text-decoration: none;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.instagram .fa-instagram {
+    color: #E4405F;
+}
+
+.tiktok .fa-tiktok {
+    color: black;
+}
+
+.youtube .fa-youtube {
+    color: red;
+}
+
+.whatsapp .fa-whatsapp {
+    color: green;
+}
+
+.instagram:hover .fa-instagram {
+    color: #f77a91;
+}
+
+.tiktok:hover .fa-tiktok {
+    color: #333;
+}
+
+.youtube:hover .fa-youtube {
+    color: #ff5757;
+}
+
+.whatsapp:hover .fa-whatsapp {
+    color: #4CAF50;
+}
+
+/*responsividad*/
+@media (max-width: 768px) {
+
+    /* En pantallas pequeñas, apilamos las columnas */
+    .footer-columns-container {
+        flex-direction: column;
+        gap: 0;
+        /* Eliminamos el gap ya que están apiladas */
+    }
+
+    /* Cada columna ocupa todo el ancho disponible */
+    .footer-col {
+        flex-basis: 100%;
+        margin-bottom: 30px;
+        /* Añadimos espacio entre las columnas apiladas */
+    }
+
+    /* El logo y la información de contacto deben alinearse al centro en móvil */
+    .footer-col-info,
+    .footer-col-social {
+        text-align: center;
+    }
+
+    /* Centrar los elementos dentro de las columnas centradas */
+    .footer-col-info .footer-logo {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* Aseguramos que los enlaces de navegación y legal sigan a la izquierda */
+    .footer-col-links,
+    .footer-col-legal {
+        text-align: left;
+    }
+
+    /* Centrar los íconos de redes en móvil */
+    .container-footerRedes {
+        display: flex;
+        justify-content: center;
+        margin-top: 15px;
+    }
+
+    /* Centrar la fila de pago/seguridad */
+    .footer-payment-security {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .security-text {
+        margin-top: 10px;
+    }
+}

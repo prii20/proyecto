@@ -69,90 +69,32 @@ document.addEventListener('DOMContentLoaded', () => {
     );
 
     // ---  logica del carrousel ---
+const carouselSlide = document.querySelector('.carousel-slide');
+        const images = document.querySelectorAll('.carousel-slide img');
 
-    // variables del dom
-    const carrouselPistas = document.getElementById('carrouselPistas');
+        let counter = 0;
+        const size = images[0].clientWidth; // Obtiene el ancho de la primera imagen
 
-    if(!carrouselPistas){
-        console.warn("Carrousel no encontrado. Verifica el ID 'carrouselPistas'");
-        return; // Salir si el carrusel no existe
-    }
+        // Mover el carrusel a la primera imagen al cargar
+        carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-    const diapositivas = carrouselPistas.querySelectorAll('.diapositiva');
-    const totalDiapositiva = diapositivas.length;
+        setInterval(() => {
+            counter++;
+            carouselSlide.style.transition = 'transform 0.5s ease-in-out';
+            carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
 
-    const flechaIzquierda = document.getElementById('flechaIzquierda');
-    const flechaDerecha = document.getElementById('flechaDerecha');
+            // Cuando llega al final, resetear al principio sin transición para que no se vea el "salto"
+            if (counter === images.length) {
+                setTimeout(() => {
+                    carouselSlide.style.transition = 'none';
+                    counter = 0;
+                    carouselSlide.style.transform = 'translateX(' + (-size * counter) + 'px)';
+                }, 500); // Esperar a que termine la transición actual
+            }
+        }, 3000); // Cambia de imagen cada 3 segundos (3000 milisegundos)
 
-    let diapositivaActual= 0;
-    let carrouselIntervalo;
-    const intervaloTiempo= 3000; 
-
-
-    // funcion del movimiento
-    function moverCarrousel(){
-        // El cálculo de desplazamiento usa el total de diapositivas para asegurar el 100% de movimiento
-        const desplazamiento = -diapositivaActual * 100 / totalDiapositiva; 
-        // Usamos gsap para una transicion de movimiento suave
-        gsap.to(carrouselPistas, {
-            x: `${desplazamiento}%`,
-            duration: 0.6,
-            ease: "power2.out"
-        });
-    }
-
-    // funcion de navegacion
-    function siguienteDiapositiva (){
-        if(diapositivaActual >= totalDiapositiva - 1){
-            diapositivaActual = 0; 
-        } else {
-            diapositivaActual++;
-        }
-        moverCarrousel();
-    }
-
-    function anteriorDiapositiva(){
-        if(diapositivaActual <= 0){
-            diapositivaActual = totalDiapositiva - 1; 
-        } else {
-            diapositivaActual--;
-        }
-        moverCarrousel();
-    }
-
-    // control de autoplay
-    function iniciarAutoplay(){
-        if(carrouselIntervalo) clearInterval(carrouselIntervalo);
-        carrouselIntervalo = setInterval(siguienteDiapositiva, intervaloTiempo);
-    }
-    function detenerAutoplay(){
-        clearInterval(carrouselIntervalo);
-    }
-
-    // manejadores de eventos de las flechas
-    const handlArrowClick = (direccion) =>{
-        detenerAutoplay();
-
-        if(direccion === 'siguiente'){
-            siguienteDiapositiva();
-        } else {
-            anteriorDiapositiva(); 
-        }
-        
-        // Reiniciar el autoplay después de un breve retraso para que el usuario pueda interactuar
-        setTimeout(iniciarAutoplay, 5000); 
-    };
-    
-    // Asignación de eventos. 
-    if (flechaIzquierda && flechaDerecha) {
-        flechaIzquierda.addEventListener('click', () => handlArrowClick('anterior'));
-        flechaDerecha.addEventListener('click', () => handlArrowClick('siguiente')); 
-    }
-    
-    // Inicia el carrusel después de que el DOM esté listo
-    iniciarAutoplay(); 
 });
-
+    
 
 //logica y animaciones para el footer
 

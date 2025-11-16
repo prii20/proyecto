@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css"> <!-- Asegúrate de que esta línea esté aquí -->
+    <script src="login.js" defer></script>
+    <title>Login</title>
+</head>
+<body>
+    <div class="login-wrapper"> <!-- Nueva clase para el contenedor principal -->
+        <div class="login-card"> <!-- Nueva clase para la tarjeta blanca -->
+
+            <h2 class="login-title">Iniciar sesión</h2> <!-- Nueva clase para el título -->
+
+            <form id="loginForm" class="login-form"> <!-- Nueva clase para el formulario -->
+
+                <input type="email" id="email" placeholder="Correo" required
+                    class="form-input"> <!-- Nueva clase para los inputs -->
+
+                <input type="password" id="password" placeholder="Contraseña" required
+                    class="form-input"> <!-- Nueva clase para los inputs -->
+
+                <button type="submit"
+                    class="submit-button"> <!-- Nueva clase para el botón -->
+                    Ingresar
+                </button>
+            </form>
+
+            <p class="register-text"> <!-- Nueva clase para el texto -->
+                ¿No tenés cuenta?
+                <a href="register.html" class="register-link">Registrate</a> <!-- Nueva clase para el enlace -->
+            </p>
+
+        </div>
+    </div>
+</body>
+</html>
