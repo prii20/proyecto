@@ -1,0 +1,14 @@
+/* estilos simples para panel de sugerencias */
+.suggestions-panel {
+  background: white;
+  padding: 1rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  margin-top: 1rem;
+}
+.suggestions-panel h3 { margin: 0 0 0.5rem 0; }
+.suggestions-output { white-space: pre-wrap; color: #333; }
+.suggestions-actions { margin-top: 0.5rem; display:flex; gap:0.5rem; }
+.suggestions-actions button { padding:0.4rem 0.6rem; border-radius:4px; border:none; cursor:pointer }
+.suggestions-actions #ask-ai { background:#007bff; color:#fff }
+.suggestions-actions #clear-ai { background:#6c757d; color:#fff }
