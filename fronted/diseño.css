@@ -192,6 +192,144 @@ header {
     background-color: #218838;
 }
 
+/* --- Style overrides to match index (typography, colors, animations) --- */
+body {
+  /* Prefer the site serif used on index */
+  font-family: 'Source Serif 4', serif;
+}
+
+.header-flex h1 {
+  font-family: 'Bebas Neue', Arial, sans-serif;
+  letter-spacing: 3px;
+}
+
+/* Make preview card match index background and softer shadow */
+.lamp-preview {
+  background-color: whitesmoke !important;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08) !important;
+}
+
+/* Option buttons styled like the yellow CTA on index */
+.option-btn {
+  background-color: #FFD700 !important;
+  color: #222;
+  border: none !important;
+}
+.option-btn:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12) !important;
+}
+
+/* Main action button (Guardar lampara) styled like index CTA */
+#add-to-cart-btn {
+  background-color: #071931 !important;
+  color: #f5efef !important;
+  border: none !important;
+  box-shadow: 0 8px 22px rgba(0,0,0,0.14);
+}
+#add-to-cart-btn:hover {
+  transform: translateY(-3px);
+}
+
+/* Subtle fade-in animation as a CSS fallback for GSAP */
+.gsap-fade-in {
+  opacity: 0;
+  transform: translateY(8px);
+  animation: fadeInUp 560ms ease forwards;
+}
+@keyframes fadeInUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Catalog look & feel overrides --- */
+body.catalog-look {
+    background: radial-gradient(circle at top, #1b2735, #0d1b28) !important;
+    color: #f0eac1 !important;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2em;
+    padding: 50px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.catalog-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.4);
+    transform: scale(1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    opacity: 0;
+    transform: translateY(40px);
+}
+
+.catalog-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.catalog-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 30px rgba(240, 234, 193, 0.25);
+}
+
+.catalog-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.4s ease, filter 0.3s ease;
+}
+
+.catalog-card:hover img {
+    transform: scale(1.08);
+    filter: brightness(1.15) contrast(1.1);
+}
+
+.catalog-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+    color: #f0eac1;
+    font-size: 1.2em;
+    font-weight: 600;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+/* User-requested theme tweaks: blank panels -> blue bg, white text; options container lighter blue */
+.lamp-preview, .controls-panel, .receipt-card {
+    background-color: #03254b !important; /* strong blue */
+    color: #ffffff !important;
+}
+
+.options-container {
+    background-color: #101d31; /* lighter blue */
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.option-btn {
+    background-color: rgba(167, 22, 22, 0.08) !important;
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,0.12) !important;
+}
+
+.option-btn span { color: #fff !important; }
+
+#price-display { color: #fff !important; }
+
+.receipt-card { background-color: #083a86 !important; }
+
 /* Media Queries para responsividad */
 @media (max-width: 768px) {
     .designer-container {
@@ -232,6 +370,32 @@ header {
 .receipt {
     margin-top: 1rem;
     text-align: left;
+    /* Ensure the receipt sits above other content so its buttons receive pointer events */
+    position: relative;
+    z-index: 9999;
+    pointer-events: auto;
+}
+
+/* Modal backdrop and centered receipt content */
+.receipt-backdrop {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 9998;
+}
+
+#receipt-content {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    pointer-events: auto;
+    max-width: 520px;
+    width: calc(100% - 40px);
 }
 
 .receipt-card {

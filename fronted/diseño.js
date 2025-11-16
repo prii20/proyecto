@@ -1,3 +1,16 @@
+// Safe console polyfill: ensures console.* calls won't throw when devtools are closed (older browsers)
+(function(){
+  try {
+    if (!window.console) window.console = {};
+    var methods = ['log','debug','info','warn','error','assert','clear','count','dir','dirxml','exception','group','groupCollapsed','groupEnd','profile','profileEnd','time','timeEnd','trace'];
+    for (var i=0;i<methods.length;i++){
+      if (!window.console[methods[i]]) window.console[methods[i]] = function(){};
+    }
+  } catch (e) {
+    // ignore
+  }
+})();
+
 // --- VARIABLES GLOBALES ---
 const baseImg = document.getElementById("lamp-base");
 const shadeImg = document.getElementById("lamp-shade");
@@ -144,24 +157,77 @@ function renderReceipt(design) {
       <div class="receipt-row"><strong>Bombilla:</strong> ${design.bulb.value} - $${design.bulb.price.toFixed(2)}</div>
       <div class="receipt-row"><strong>Total:</strong> $${design.totalPrice.toFixed(2)}</div>
       <div class="receipt-actions">
-        <button id="print-receipt">Imprimir</button>
-        <button id="confirm-order">Confirmar Pedido</button>
+        <button id="print-receipt" type="button" onclick="window.print()">Imprimir</button>
       </div>
     </div>
   `;
-  receiptEl.innerHTML = html;
-  receiptEl.hidden = false;
+  // Create or reuse a modal container attached to body so nothing overlays it
+  let modal = document.getElementById('receipt-modal');
+  if (!modal) {
+    modal = document.createElement('div');
+    modal.id = 'receipt-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    document.body.appendChild(modal);
+  }
+  modal.innerHTML = `<div class="receipt-backdrop" id="receipt-backdrop"></div><div class="receipt" id="receipt-content">${html}</div>`;
+  modal.style.position = 'fixed';
+  modal.style.left = '0';
+  modal.style.top = '0';
+  modal.style.width = '100%';
+  modal.style.height = '100%';
+  modal.style.zIndex = '9999';
+  modal.style.pointerEvents = 'auto';
+  // store a reference to the content area for later operations
+  const receiptContent = document.getElementById('receipt-content');
 
-  document.getElementById("print-receipt").addEventListener("click", () => {
-    window.print();
-  });
+  // Ensure the original #receipt element is hidden (for ARIA/compat)
+  if (receiptEl) { receiptEl.hidden = true; }
 
-  document.getElementById("confirm-order").addEventListener("click", () => {
-    // Por ahora confirmamos y reiniciamos diseño
-    alert(`Pedido confirmado. Total: $${design.totalPrice.toFixed(2)}`);
-    resetDesign();
-  });
+  // After inserting HTML ensure buttons are focusable and accept pointer events
+  // Buttons are inside the modal's content
+  const printBtn = document.getElementById('print-receipt');
+  if (printBtn) {
+    printBtn.tabIndex = 0;
+    printBtn.style.pointerEvents = 'auto';
+  }
+  // no confirm button anymore
+
+  // small visible click counter to help debug click behavior without console
+  // attach the click counter inside the modal content
+  let counter = receiptContent.querySelector('.receipt-click-counter');
+  if (!counter) {
+    counter = document.createElement('div');
+    counter.className = 'receipt-click-counter';
+    counter.style.fontSize = '0.8rem';
+    counter.style.color = '#666';
+    counter.style.marginTop = '0.5rem';
+    counter.textContent = 'Clicks: 0';
+    receiptContent.querySelector('.receipt-card').appendChild(counter);
+  }
+  // helper to bump counter when actions happen
+  function bumpCounter() {
+  const el = receiptContent.querySelector('.receipt-click-counter');
+    if (!el) return;
+    const n = parseInt(el.textContent.replace(/[^0-9]/g, '') || '0', 10) + 1;
+    el.textContent = `Clicks: ${n}`;
+  }
+  // Track clicks on the two action buttons specifically
+  if (printBtn) printBtn.addEventListener('click', bumpCounter);
+
+  // Close modal helper when order confirmed or when backdrop clicked
+  const backdrop = document.getElementById('receipt-backdrop');
+  function closeModal() {
+    const m = document.getElementById('receipt-modal');
+    if (m) m.parentNode.removeChild(m);
+    if (receiptEl) receiptEl.hidden = true;
+  }
+  if (backdrop) backdrop.addEventListener('click', closeModal);
 }
+
+// Receipt actions are handled directly on the modal buttons now (print only)
+
+// confirmOrder removed: confirmation flow replaced by print-only receipt
 
 function resetDesign() {
   optionButtons.forEach((b) => b.classList.remove("selected"));
@@ -280,4 +346,16 @@ if (clearAiBtn) clearAiBtn.addEventListener('click', () => { suggestionsOutput.t
 
 // Expose for inline onclick calls
 window.askAiSuggestion = askAiSuggestion;
+
+// --- Small visual init to apply catalog look & animations ---
+(function applyCatalogLook(){
+  try {
+    document.body.classList.add('catalog-look');
+    // If there are any catalog-card elements, reveal them with the animation
+    const cards = document.querySelectorAll('.catalog-card');
+    cards.forEach((c, i) => setTimeout(() => c.classList.add('visible'), i * 80));
+  } catch (e) {
+    /* ignore */
+  }
+})();
 
