@@ -3,8 +3,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Poppins', sans-serif;
-  background: radial-gradient(circle at top, #1b2735, #0d1b28);
-  color: #f0eac1;
+  background-color: white;
+  color: #2b2b2b;
 }
 
 
@@ -21,7 +21,7 @@ body {
   font-size: 1.4rem;
   font-weight: 600;
   letter-spacing: 2px;
-  color: #f0eac1;
+  color: #2b2b2b;
   text-transform: uppercase;
 }
 
@@ -31,14 +31,14 @@ body {
 }
 
 .nav a {
-  color: #f0eac1;
+  color: #2b2b2b;
   text-decoration: none;
   font-size: 0.95rem;
   transition: color 0.3s, text-shadow 0.3s;
 }
 
 .nav a:hover {
-  color: #ffffff;
+  color: #04154d;
   text-shadow: 0 0 8px rgba(240, 234, 193, 0.6);
 }
 
