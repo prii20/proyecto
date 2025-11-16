@@ -3,36 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="login.css"> <!-- Asegúrate de que esta línea esté aquí -->
     <script src="login.js" defer></script>
     <title>Login</title>
 </head>
 <body>
-<div class="min-h-screen flex items-center justify-center bg-gray-100 p-4">
-  <div class="bg-white w-full max-w-md p-8 rounded-2xl shadow-xl">
+    <div class="login-wrapper"> <!-- Nueva clase para el contenedor principal -->
+        <div class="login-card"> <!-- Nueva clase para la tarjeta blanca -->
 
-    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Iniciar sesión</h2>
+            <h2 class="login-title">Iniciar sesión</h2> <!-- Nueva clase para el título -->
 
-    <form id="loginForm" class="flex flex-col gap-4">
+            <form id="loginForm" class="login-form"> <!-- Nueva clase para el formulario -->
 
-      <input type="email" id="email" placeholder="Correo" required
-        class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" id="email" placeholder="Correo" required
+                    class="form-input"> <!-- Nueva clase para los inputs -->
 
-      <input type="password" id="password" placeholder="Contraseña" required
-        class="p-3 border rounded-lg outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="password" id="password" placeholder="Contraseña" required
+                    class="form-input"> <!-- Nueva clase para los inputs -->
 
-      <button type="submit"
-        class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition font-semibold">
-        Ingresar
-      </button>
-    </form>
+                <button type="submit"
+                    class="submit-button"> <!-- Nueva clase para el botón -->
+                    Ingresar
+                </button>
+            </form>
 
-    <p class="mt-4 text-center text-gray-600">
-      ¿No tenés cuenta?
-      <a href="register.html" class="text-blue-600 hover:underline font-medium">Registrate</a>
-    </p>
+            <p class="register-text"> <!-- Nueva clase para el texto -->
+                ¿No tenés cuenta?
+                <a href="register.html" class="register-link">Registrate</a> <!-- Nueva clase para el enlace -->
+            </p>
 
-  </div>
-</div>
+        </div>
+    </div>
 </body>
 </html>
